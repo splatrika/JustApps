@@ -1,4 +1,5 @@
-﻿namespace JustApps.Models
+﻿#nullable disable
+namespace JustApps.Models
 {
     public class AppInfo
     {

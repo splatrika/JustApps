@@ -1,7 +1,7 @@
 ﻿using System;
 using JustApps.Models;
 using Microsoft.EntityFrameworkCore;
-
+#nullable disable
 namespace JustApps.Data
 {
     public class AppDbContext : DbContext

@@ -4,8 +4,45 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
 
+@if (!Model.IsAppSelected)
+{
+    <div class="limited_center_wrapper">
+        <div class="content_wrapper browser_wrapper">
+            <partial name="Partial/_Browser" model="Model.BrowserModel" />
+        </div>
+    </div>
+}
+else
+{
+    <div class="body_wrapper">
+        <div class="side_bar">
+            <div class="browser">
+                <partial name="Partial/_Browser" model="Model.BrowserModel" />
+            </div>
+        </div>
+        <div class="limited_center_wrapper app_panel_wrapper">
+            <div class="content_wrapper browser_wrapper">
+                <div class="app_panel">
+                    <partial name="Partial/_AppInfo" model="@new AppInfoView(Model.SelectedApp!.Info, false)" view-data="ViewData" />
+                    <partial name="Partial/_Reviews" model="@new ReviewsView(Model.SelectedApp!)" view-data="ViewData" />
+                    <form class="review" asp-page-handler="comment" method="post">
+                        <input asp-for="SendingReview.AppId" value="@Model.SelectedApp!.Info.Id" hidden />
+                        <input asp-for="SendingReview.Sender" type="text" placeholder="Nickname" />
+                        <span asp-validation-for="SendingReview.Sender"></span>
+                        <br />
+                        <textarea asp-for="SendingReview.Content" placeholder="Review..."></textarea>
+                        <span asp-validation-for="SendingReview.Content"></span>
+                        <br />
+                        <button>Send</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

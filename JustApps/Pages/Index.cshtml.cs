@@ -1,20 +1,23 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using JustApps.Services;
+using JustApps.Pages.Base;
 
 namespace JustApps.Pages;
 
-public class IndexModel : PageModel
-{
-    private readonly ILogger<IndexModel> _logger;
 
-    public IndexModel(ILogger<IndexModel> logger)
+public class IndexModel : AppListView
+{
+    public IndexModel(ILogger<AppListView> logger, IAppBrowserService service) : base(logger, service, "Index")
     {
-        _logger = logger;
     }
 
-    public void OnGet()
+    public void OnPostComment()
     {
-
+        var appId = SendingReview.AppId;
+        if (ModelState.IsValid)
+        {
+            Service.SendReview(SendingReview);
+            SendingReview = new();
+        }
+        OnGet(appId);
     }
 }
-

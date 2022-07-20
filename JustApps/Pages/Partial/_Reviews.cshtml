@@ -1,0 +1,19 @@
+﻿@model ReviewsView
+
+<div class="reviews">
+    <div class="reviews_wrapper">
+        <div class="content">
+            @if (Model.Reviews.Length == 0)
+            {
+                <p>There is no reviews</p>
+            }
+            @foreach (var item in Model.Reviews)
+            {
+                <div class="item">
+                    <h4>@item.Sender</h4>
+                    <p>@item.Content</p>
+                </div>
+            }
+        </div>
+    </div>
+</div>

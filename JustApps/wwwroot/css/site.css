@@ -1,18 +1,150 @@
-﻿html {
-  font-size: 14px;
+﻿body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
 }
 
-html {
-  position: relative;
-  min-height: 100%;
+header {
+    padding: 20px;
 }
 
-body {
-  margin-bottom: 60px;
+.browser_wrapper .browser {
+    background-color: rgb(241, 241, 241);
 }
+
+.limited_center_wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+    .limited_center_wrapper .content_wrapper {
+        flex: 100%;
+        max-width: 800px;
+    }
+
+.app_list a {
+    text-decoration: none;
+    color: black;
+}
+
+.app_list .item {
+    display: flex;
+    padding: 20px;
+}
+
+    .app_list .item .icon_wrapper {
+        width: 50px;
+        height: 50px;
+        background-color: black;
+        background-size: cover;
+        border-radius: 10px;
+        margin-right: 20px;
+    }
+
+    .app_list .item:hover {
+        background-color: rgb(222, 223, 239);
+    }
+
+    .app_list .item .vertical_centre_wrapper {
+        margin-right: 20px;
+    }
+
+.vertical_centre_wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.app_info {
+    display: flex;
+}
+
+    .app_info .icon_wrapper {
+        height: 120px;
+        width: 120px;
+        background-color: black;
+        background-size: cover;
+        border-radius: 20px;
+        margin-right: 20px;
+    }
+
+.reviews_wrapper {
+    overflow: hidden;
+}
+
+.reviews_wrapper {
+    padding: 20px;
+    overflow: scroll;
+}
+
+    .reviews_wrapper .content {
+        display: flex;
+    }
+
+        .reviews_wrapper .content .item {
+            flex: 0 0 200px;
+            min-height: 100px;
+            padding: 10px;
+            border: 1px solid rgb(201, 201, 201);
+            border-radius: 10px;
+            margin-right: 10px;
+        }
+
+form {
+    padding: 20px;
+}
+
+button {
+    background-color: rgb(41, 100, 100);
+    padding: 10px;
+    border: none;
+    color: white;
+    margin: 0;
+}
+
+    button:active {
+        opacity: 0.5;
+    }
+
+input[type=text] {
+    padding: 10px;
+    border: 1px solid rgb(201, 201, 201);
+}
+
+textarea {
+    padding: 10px;
+    border: 1px solid rgb(201, 201, 201);
+    resize: none;
+}
+
+form.review input,
+form.review textarea {
+    width: 200px;
+    margin-bottom: 10px;
+}
+
+form.review textarea {
+    height: 100px;
+}
+
+.body_wrapper {
+    display: flex;
+}
+
+    .body_wrapper .app_panel_wrapper {
+        flex: 100%;
+    }
+
+    .body_wrapper .side_bar {
+        flex: 0 0 400px;
+    }
+/*# sourceMappingURL=app.css.map */
