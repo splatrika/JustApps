@@ -1,0 +1,46 @@
+﻿@page
+@model JustApps.Pages.AdminModel
+@{
+}
+
+<h6>Dashboard</h6>
+@if (!Model.IsAppSelected)
+{
+    <div class="limited_center_wrapper">
+        <div class="content_wrapper browser_wrapper">
+            <partial name="Partial/_Browser" model="Model.BrowserModel" />
+            <form asp-page-handler="createApp">
+                <button>Create App</button>
+            </form>
+        </div>
+    </div>
+}
+else
+{
+    <div class="body_wrapper">
+        <div class="side_bar">
+            <div class="browser">
+                <partial name="Partial/_Browser" model="Model.BrowserModel" />
+                <form asp-page-handler="createApp">
+                    <button>Create App</button>
+                </form>
+            </div>
+        </div>
+        <div class="limited_center_wrapper app_panel_wrapper">
+            <div class="content_wrapper browser_wrapper">
+                <div class="app_panel">
+                    <a asp-page="RemoveApp" asp-route-id="@Model.SelectedApp.Info.Id">Remove</a>
+                    <header class="app_info">
+                        <div class="icon_wrapper" style="background-image: url('@Model.SelectedApp.Info.PhotoURL');"></div>
+                        <form asp-page-handler="updateApp">
+                            <input asp-for="UpdatedApp.Name" placeholder="Name" value="@Model.SelectedApp.Info.Name" />
+                            <input asp-for="UpdatedApp.PhotoURL" placeholder="IconURL" value="@Model.SelectedApp.Info.PhotoURL" />
+                            <button>Save</button>
+                        </form>
+                    </header>
+                    <partial name="Partial/_Reviews" model="@new ReviewsView(Model.SelectedApp!)" view-data="ViewData" />
+                </div>
+            </div>
+        </div>
+    </div>
+}

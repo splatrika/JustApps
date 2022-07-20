@@ -6,7 +6,8 @@ namespace JustApps.Pages;
 
 public class IndexModel : AppListView
 {
-    public IndexModel(ILogger<AppListView> logger, IAppBrowserService service) : base(logger, service, "Index")
+    public IndexModel(ILogger<AppListView> logger, IAppBrowserService service)
+        : base(logger, service, "Index")
     {
     }
 

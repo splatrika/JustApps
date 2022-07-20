@@ -9,6 +9,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("SqlServer")));
 
 builder.Services.AddSingleton<IAppBrowserService, AppBrowserService>();
+builder.Services.AddSingleton<IAdminService, AdminService>();
 
 builder.Services.AddRazorPages();
 

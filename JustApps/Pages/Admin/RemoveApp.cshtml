@@ -1,0 +1,12 @@
+﻿@page
+@model JustApps.Pages.Admin.RemoveAppModel
+@{
+}
+
+<h1>Warning</h1>
+<p>Are you sure to delete this app: @Model.RemovingApp.Name</p>
+<form method="post">
+    <input asp-for="RemovingAppId" value="@Model.RemovingApp.Id" hidden />
+    <button>Do it</button>
+</form>
+<a asp-page="/Index" asp-route-id="@Model.RemovingApp.Id">Cancel</a>

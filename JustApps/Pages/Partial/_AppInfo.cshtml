@@ -3,7 +3,18 @@
 
 <header class="app_info">
     <div class="icon_wrapper" style="background-image: url('@Model.App.PhotoURL');"></div>
-    <div class="vertical_centre_wrapper">
-        <h1>@Model.App.Name</h1>
-    </div>
+    @if (Model.AllowEdit) //TODO
+    {
+        <form method="post">
+            <input placeholder="Name" value="@Model.App.Name" />
+            <input placeholder="IconURL" value="@Model.App.PhotoURL" />
+            <button>Save</button>
+        </form>
+    }
+    else
+    {
+        <div class="vertical_centre_wrapper">
+            <h1>@Model.App.Name</h1>
+        </div>
+    }
 </header>

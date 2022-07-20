@@ -17,6 +17,7 @@
     <None Remove="Pages\Base\" />
     <None Remove="Pages\Base\Interfaces\" />
     <None Remove="Pages\Partial\" />
+    <None Remove="Pages\Admin\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -26,6 +27,7 @@
     <Folder Include="Pages\Base\" />
     <Folder Include="Pages\Base\Interfaces\" />
     <Folder Include="Pages\Partial\" />
+    <Folder Include="Pages\Admin\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.7">

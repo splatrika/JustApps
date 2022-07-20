@@ -1,12 +1,11 @@
 ﻿using System;
 using JustApps.Models;
 
-namespace JustApps.Services
+namespace JustApps.Services;
+
+public interface IAppBrowserService
 {
-    public interface IAppBrowserService
-    {
-        IEnumerable<AppListItem> GetAll();
-        void SendReview(Review item);
-    }
+    IEnumerable<AppListItem> GetAll();
+    void SendReview(Review item);
 }
 
